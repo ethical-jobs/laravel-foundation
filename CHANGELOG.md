@@ -1,5 +1,7 @@
 # [staged]
 
+# v1.5.0
+
 - Upgrade rollbar package
 - Implement response cache pacakge
 
