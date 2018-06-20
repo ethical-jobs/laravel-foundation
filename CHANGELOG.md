@@ -1,3 +1,8 @@
+# [staged]
+
+- Upgrade rollbar package
+- Implement response cache pacakge
+
 # v1.4.0
 
 - Adding Repository Criteria

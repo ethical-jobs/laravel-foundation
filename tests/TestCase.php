@@ -28,14 +28,15 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 	 * Inject package service provider
 	 * 
 	 * @param  Application $app
-	 * @return Array
+	 * @return array
 	 */
 	protected function getPackageProviders($app)
 	{
 	    return [
 	    	Laravel\LoggingServiceProvider::class,
 	    	Laravel\FractalServiceProvider::class,
-	    	Laravel\QueueServiceProvider::class,
+			Laravel\QueueServiceProvider::class,
+			Laravel\ResponseCacheServiceProvider::class,
 	    	ConsoleServiceProvider::class,
 	   	];
 	}

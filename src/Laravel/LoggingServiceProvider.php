@@ -61,7 +61,7 @@ class LoggingServiceProvider extends ServiceProvider
     }   
 
     /**
-     * Override fractals config
+     * Override services config
      *
      * @return void
      */
