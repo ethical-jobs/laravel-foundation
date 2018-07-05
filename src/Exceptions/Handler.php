@@ -3,7 +3,7 @@
 namespace EthicalJobs\Foundation\Exceptions;
 
 use Illuminate\Validation\ValidationException;
-use EthicalJobs\Foundation\Utils\Arrays;
+use EthicalJobs\Utilities\Arrays;
 
 /**
  * Handles exceptions & transforms into JSON

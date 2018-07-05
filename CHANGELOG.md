@@ -1,5 +1,12 @@
 # [staged]
 
+# v2.0.0
+
+- Support for laravel 5.6
+- Removed queued logging
+- Adding support for Rollbar logging via ethical-jobs/rollbar-laravel (awaiting PR)
+- Deprecating Utilities in favour of ethical-jobs/utilities
+
 # v1.5.0
 
 - Upgrade rollbar package

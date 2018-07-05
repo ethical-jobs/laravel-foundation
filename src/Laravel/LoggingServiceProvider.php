@@ -3,8 +3,6 @@
 namespace EthicalJobs\Foundation\Laravel;
 
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\ServiceProvider;
-use EthicalJobs\Foundation\Logging\Writer;
 
 /**
  * Logging service provider
@@ -12,7 +10,7 @@ use EthicalJobs\Foundation\Logging\Writer;
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
 
-class LoggingServiceProvider extends ServiceProvider
+class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Register any other events for your application.
@@ -28,29 +26,15 @@ class LoggingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerLogger();
-
         $this->registerRollbar();
     }
 
     /**
-     * Extend the logger.
+     * Register rollbar service provider
      *
-     * @return \Illuminate\Log\Writer
+     * @return void
      */
-    public function registerLogger()
-    {
-        $this->app->extend('log', function($log) {
-            return new Writer($log->getMonolog(), $log->getEventDispatcher());
-        });
-    }   
-
-    /**
-     * Register rollbar logger
-     *
-     * @return \Illuminate\Log\Writer
-     */
-    public function registerRollbar()
+    public function registerRollbar() : void
     {
         if (in_array(App::environment(), ['production', 'staging'])) {
 
@@ -67,8 +51,12 @@ class LoggingServiceProvider extends ServiceProvider
      */
     protected function extendConfig()
     {    
-        $source = realpath(__DIR__.'/../../config/rollbar.php');
+        // $source = realpath(__DIR__.'/../../config/rollbar.php');
 
-        $this->mergeConfigFrom($source, 'services');
+        // $this->mergeConfigFrom($source, 'services');
+
+        $source = realpath(__DIR__.'/../../config/logging.php');
+
+        $this->mergeConfigFrom($source, 'logging');        
     }       
 }
