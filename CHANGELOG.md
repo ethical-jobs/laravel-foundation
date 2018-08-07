@@ -7,6 +7,10 @@
 - Adding support for Rollbar logging via ethical-jobs/rollbar-laravel (awaiting PR)
 - Deprecating Utilities in favour of ethical-jobs/utilities
 
+# v1.5.1
+
+- Addressing Rollbar logger tests
+
 # v1.5.0
 
 - Upgrade rollbar package
