@@ -55,6 +55,8 @@ class RollbarServiceProviderTest extends \Tests\TestCase
      */
     public function it_loads_package_config()
     {
+        App::shouldReceive('environment')->andReturn('staging');
+        
         $this->app->register(LoggingServiceProvider::class, [], true);
 
         $config = config('services');
