@@ -1,5 +1,13 @@
 # [staged]
 
+# v1.5.2
+
+- Fixes for pkg dependancies
+
+# v1.5.1
+
+- See upstream [develop][tag]
+
 # v1.5.0
 
 - Upgrade rollbar package
