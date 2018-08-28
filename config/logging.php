@@ -35,7 +35,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['rollbar','single','stderr'],
+            'channels' => ['rollbar','daily','stderr'],
         ],
         
         'rollbar' => [
@@ -48,11 +48,12 @@ return [
             'level' => 'debug',
         ],     
 
-        'single' => [
-            'driver' => 'single',
+        'daily' => [
+            'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
-        ],        
+            'days' => 7,
+        ],    
 
         'stderr' => [
             'driver' => 'monolog',
