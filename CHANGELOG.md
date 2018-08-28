@@ -1,9 +1,9 @@
 # [staged]
 
-# v2.0.2
+# v2.0.3
 
 - Upgrading rollbar package version
-- Changing rollbar config
+- Changing logging config
 - Adding daily logs
 
 # v2.0.0
