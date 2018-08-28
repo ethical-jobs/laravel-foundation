@@ -1,5 +1,10 @@
 # [staged]
 
+# v2.0.1
+
+- Upgrading rollbar package version
+- Changing rollbar config
+
 # v2.0.0
 
 - Support for laravel 5.6
