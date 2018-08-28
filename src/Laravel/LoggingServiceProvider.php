@@ -3,6 +3,7 @@
 namespace EthicalJobs\Foundation\Laravel;
 
 use Illuminate\Support\Facades\App;
+use Rollbar\Laravel\RollbarServiceProvider;
 
 /**
  * Logging service provider
@@ -40,7 +41,7 @@ class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
 
             $this->extendConfig();
 
-            $this->app->register(\Rollbar\Laravel\RollbarServiceProvider::class);
+            $this->app->register(RollbarServiceProvider::class);
         }        
     }   
 
@@ -51,10 +52,6 @@ class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     protected function extendConfig()
     {    
-        // $source = realpath(__DIR__.'/../../config/rollbar.php');
-
-        // $this->mergeConfigFrom($source, 'services');
-
         $source = realpath(__DIR__.'/../../config/logging.php');
 
         $this->mergeConfigFrom($source, 'logging');        

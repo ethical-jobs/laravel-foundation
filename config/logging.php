@@ -1,10 +1,9 @@
 <?php
 
 use Monolog\Handler\StreamHandler;
-use Rollbar\Laravel\RollbarLogHandler;
+use Rollbar\Laravel\MonologHandler;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Log Channel
@@ -38,16 +37,16 @@ return [
             'driver' => 'stack',
             'channels' => ['rollbar','single','stderr'],
         ],
-
+        
         'rollbar' => [
             'driver' => 'monolog',
-            'handler' => RollbarLogHandler::class,
-            'level' => 'debug',
+            'handler' => MonologHandler::class,
             'access_token' => env('ROLLBAR_TOKEN'),
             'code_version' => env('VERSION_TAG', 'latest'),
             'environment' => env('EJ_ENV', env('API_ENV'), env('APP_ENV')) ?? 'production',
-            'enable_utf8_sanitization' => false,
-        ],         
+            'enable_utf8_sanitization' => false,            
+            'level' => 'debug',
+        ],     
 
         'single' => [
             'driver' => 'single',
