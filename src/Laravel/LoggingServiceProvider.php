@@ -2,7 +2,6 @@
 
 namespace EthicalJobs\Foundation\Laravel;
 
-use Illuminate\Support\Facades\App;
 use Rollbar\Laravel\RollbarServiceProvider;
 
 /**
@@ -37,12 +36,9 @@ class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function registerRollbar() : void
     {
-        if (in_array(App::environment(), ['production', 'staging'])) {
+        $this->extendConfig();
 
-            $this->extendConfig();
-
-            $this->app->register(RollbarServiceProvider::class);
-        }        
+        $this->app->register(RollbarServiceProvider::class);
     }   
 
     /**

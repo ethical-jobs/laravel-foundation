@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('API_LOG_CHANNEL', 'stack'),
+    'default' => env('API_LOG_CHANNEL', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -33,10 +33,16 @@ return [
     */
 
     'channels' => [
-        'stack' => [
+
+        'production' => [
             'driver' => 'stack',
             'channels' => ['rollbar','daily','stderr'],
         ],
+
+        'development' => [
+            'driver' => 'stack',
+            'channels' => ['daily'],
+        ],        
         
         'rollbar' => [
             'driver' => 'monolog',
