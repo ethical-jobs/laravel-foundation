@@ -2,6 +2,9 @@
 
 namespace EthicalJobs\Foundation\Testing;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Test Factory interface
  *
@@ -13,8 +16,8 @@ interface TestFactoryInterface
     /**
      * Creates a model
      *
-     * @param Array $attributes
-     * @return Illuminate\Database\Eloquent\Collection|Illuminate\Database\Eloquent\Model
+     * @param array $attributes
+     * @return Collection|Model
      */
     public function create($attributes = []);
 
@@ -22,7 +25,7 @@ interface TestFactoryInterface
      * How many models to create
      *
      * @param Integer $numberOfModels
-     * @return Self
+     * @return self
      */
     public function times($numberOfModels);
 }

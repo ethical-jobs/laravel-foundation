@@ -2,6 +2,7 @@
 
 namespace EthicalJobs\Foundation\Testing;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 /**
@@ -9,7 +10,6 @@ use Illuminate\Support\Collection;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 abstract class TestFactory implements TestFactoryInterface
 {
     /**
@@ -37,9 +37,9 @@ abstract class TestFactory implements TestFactoryInterface
     /**
      * Populates a m-2-m relationship
      *
-     * @param App\Models\Model $model
+     * @param Model $model
      * @param string $relation
-     * @return App\Models\Model
+     * @return Model
      */
     protected function fillManyToManyRelation($model, $relation)
     {

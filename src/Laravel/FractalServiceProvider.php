@@ -9,7 +9,6 @@ use Illuminate\Support\ServiceProvider;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class FractalServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +16,9 @@ class FractalServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot() { }
+    public function boot()
+    {
+    }
 
     /**
      * Bind Repository interfaces to their appropriate implementations.
@@ -29,7 +30,7 @@ class FractalServiceProvider extends ServiceProvider
         $this->app->register(\Spatie\Fractal\FractalServiceProvider::class);
 
         $this->extendConfig();
-    }   
+    }
 
     /**
      * Override fractals config
@@ -37,8 +38,8 @@ class FractalServiceProvider extends ServiceProvider
      * @return void
      */
     protected function extendConfig()
-    {    
-        $source = realpath(__DIR__.'/../../config/fractal.php');
+    {
+        $source = realpath(__DIR__ . '/../../config/fractal.php');
 
         $this->mergeConfigFrom($source, 'fractal');
     }

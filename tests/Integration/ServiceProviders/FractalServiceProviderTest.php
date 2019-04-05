@@ -2,7 +2,11 @@
 
 namespace Tests\Integration\ServiceProviders;
 
-class FractalServiceProviderTest extends \Tests\TestCase
+use EthicalJobs\Foundation\Http\Normalizr;
+use Spatie\Fractal\FractalServiceProvider;
+use Tests\TestCase;
+
+class FractalServiceProviderTest extends TestCase
 {
     /**
      * @test
@@ -12,7 +16,7 @@ class FractalServiceProviderTest extends \Tests\TestCase
     {
         $config = config('fractal');
 
-        $this->assertEquals($config['default_serializer'], \EthicalJobs\Foundation\Http\Normalizr::class);
+        $this->assertEquals($config['default_serializer'], Normalizr::class);
     }
 
     /**
@@ -24,7 +28,7 @@ class FractalServiceProviderTest extends \Tests\TestCase
         $config = config('fractal');
 
         $this->assertTrue($config['auto_includes']['enabled']);
-    }    
+    }
 
     /**
      * @test
@@ -34,6 +38,6 @@ class FractalServiceProviderTest extends \Tests\TestCase
     {
         $providers = $this->app->getLoadedProviders();
 
-        $this->assertTrue($providers[\Spatie\Fractal\FractalServiceProvider::class]);
-    }           
+        $this->assertTrue($providers[FractalServiceProvider::class]);
+    }
 }

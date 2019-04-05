@@ -2,8 +2,6 @@
 
 namespace EthicalJobs\Foundation\Http;
 
-use League\Fractal\Pagination\CursorInterface;
-use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Resource\ResourceInterface;
 use League\Fractal\Serializer\ArraySerializer;
 
@@ -16,8 +14,8 @@ class Normalizr extends ArraySerializer
      */
     protected $normalised = [
         'data' => [
-            'entities'  => [],
-            'result'    => [],
+            'entities' => [],
+            'result' => [],
         ],
     ];
 
@@ -32,7 +30,7 @@ class Normalizr extends ArraySerializer
      * Serialize a collection.
      *
      * @param string $resourceKey
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */
@@ -51,7 +49,7 @@ class Normalizr extends ArraySerializer
      * Serialize an item.
      *
      * @param string $resourceKey
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */
@@ -129,7 +127,7 @@ class Normalizr extends ArraySerializer
      * Serialize the included data.
      *
      * @param ResourceInterface $resource
-     * @param array             $data
+     * @param array $data
      *
      * @return array
      */
