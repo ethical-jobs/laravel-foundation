@@ -1,5 +1,9 @@
 # [staged]
 
+# v2.0.4
+- Code clean up
+- Drone config update
+
 # v2.0.3
 
 - Upgrading rollbar package version
