@@ -2,7 +2,11 @@
 
 namespace Tests\Integration\ServiceProviders;
 
-class ResponseCacheServiceProviderTest extends \Tests\TestCase
+use EthicalJobs\Foundation\Caching\RequestCacheProfile;
+use Spatie\ResponseCache\ResponseCacheServiceProvider;
+use Tests\TestCase;
+
+class ResponseCacheServiceProviderTest extends TestCase
 {
     /**
      * @test
@@ -12,8 +16,8 @@ class ResponseCacheServiceProviderTest extends \Tests\TestCase
     {
         $providers = $this->app->getLoadedProviders();
 
-        $this->assertTrue($providers[\Spatie\ResponseCache\ResponseCacheServiceProvider::class]);
-    }     
+        $this->assertTrue($providers[ResponseCacheServiceProvider::class]);
+    }
 
     /**
      * @test
@@ -22,8 +26,8 @@ class ResponseCacheServiceProviderTest extends \Tests\TestCase
     public function it_registers_cache_profile_from_our_config()
     {
         $this->assertEquals(
-            config('responsecache.cache_profile'), 
-            \EthicalJobs\Foundation\Caching\RequestCacheProfile::class
+            config('responsecache.cache_profile'),
+            RequestCacheProfile::class
         );
     }
 
@@ -34,10 +38,10 @@ class ResponseCacheServiceProviderTest extends \Tests\TestCase
     public function it_registers_redis_cache_store()
     {
         $this->assertEquals(
-            config('responsecache.cache_store'), 
+            config('responsecache.cache_store'),
             'redis'
         );
-    }    
+    }
 
     /**
      * @test
@@ -46,8 +50,8 @@ class ResponseCacheServiceProviderTest extends \Tests\TestCase
     public function it_registers_ej_cache_tag()
     {
         $this->assertEquals(
-            config('responsecache.cache_tag'), 
+            config('responsecache.cache_tag'),
             'es:cache:response'
-        );        
-    }            
+        );
+    }
 }

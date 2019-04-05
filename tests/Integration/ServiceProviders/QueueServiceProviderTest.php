@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\ServiceProviders;
 
-use Mockery;
+use EthicalJobs\Foundation\Laravel\QueueServiceProvider;
+use Exception;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Queue;
 use Tests\Fixtures;
+use Tests\TestCase;
 
-class QueueServiceProviderTest extends \Tests\TestCase
+class QueueServiceProviderTest extends TestCase
 {
     /**
      * @test
@@ -17,16 +18,16 @@ class QueueServiceProviderTest extends \Tests\TestCase
     {
         $providers = $this->app->getLoadedProviders();
 
-        $this->assertTrue($providers[\EthicalJobs\Foundation\Laravel\QueueServiceProvider::class]);
-    }  
+        $this->assertTrue($providers[QueueServiceProvider::class]);
+    }
 
     /**
      * @test
      * @group Unit
      */
     public function it_logs_failing_queue_items()
-    {        
-        $this->expectException(\Exception::class);
+    {
+        $this->expectException(Exception::class);
 
         $validateArguments = function ($arg1, $arg2) {
             $this->assertEquals('ej:queue:fail', $arg1);
@@ -34,8 +35,9 @@ class QueueServiceProviderTest extends \Tests\TestCase
             $this->assertEquals($arg2['service'], 'Laravel');
             $this->assertEquals($arg2['connection'], 'sync');
             $this->assertEquals($arg2['exception']['message'], 'We have run out of milk!');
-            $this->assertEquals($arg2['exception']['line'], 22);
+            $this->assertEquals($arg2['exception']['line'], 24);
             $this->assertTrue(is_string($arg2['exception']['trace']));
+
             return true;
         };
 
@@ -44,5 +46,5 @@ class QueueServiceProviderTest extends \Tests\TestCase
             ->withArgs($validateArguments);
 
         Fixtures\FailingQueueJob::dispatch();
-    }      
+    }
 }
