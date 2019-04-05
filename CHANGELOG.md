@@ -1,5 +1,8 @@
 # [staged]
 
+# v2.0.5
+- Fix config bug
+
 # v2.0.4
 - Code clean up
 - Drone config update
