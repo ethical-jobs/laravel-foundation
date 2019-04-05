@@ -2,11 +2,12 @@
 
 namespace Tests\Fixtures;
 
+use Exception;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class FailingQueueJob implements ShouldQueue
 {
@@ -16,9 +17,10 @@ class FailingQueueJob implements ShouldQueue
      * Execute the job.
      *
      * @return void
+     * @throws Exception
      */
     public function handle()
     {
-        throw new \Exception('We have run out of milk!');
+        throw new Exception('We have run out of milk!');
     }
 }

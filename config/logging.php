@@ -36,30 +36,30 @@ return [
 
         'production' => [
             'driver' => 'stack',
-            'channels' => ['rollbar','daily','stderr'],
+            'channels' => ['rollbar', 'daily', 'stderr'],
         ],
 
         'development' => [
             'driver' => 'stack',
             'channels' => ['daily'],
-        ],        
-        
+        ],
+
         'rollbar' => [
             'driver' => 'monolog',
             'handler' => MonologHandler::class,
             'access_token' => env('ROLLBAR_TOKEN'),
             'code_version' => env('VERSION_TAG', 'latest'),
-            'environment' => env('EJ_ENV', env('API_ENV'), env('APP_ENV')) ?? 'production',
-            'enable_utf8_sanitization' => false,            
+            'environment' => env('EJ_ENV', env('API_ENV', env('APP_ENV'))) ?? 'production',
+            'enable_utf8_sanitization' => false,
             'level' => 'debug',
-        ],     
+        ],
 
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
             'days' => 7,
-        ],    
+        ],
 
         'stderr' => [
             'driver' => 'monolog',
@@ -68,7 +68,7 @@ return [
             'with' => [
                 'stream' => 'php://stderr',
             ],
-        ],        
+        ],
 
         // There are other drivers available as well
         // 'slack' => [
@@ -78,7 +78,7 @@ return [
         //     'emoji' => ':boom:',
         //     'level' => 'critical',
         // ],
-        
+
     ],
 
 ];
