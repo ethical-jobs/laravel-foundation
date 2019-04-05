@@ -1,7 +1,7 @@
 pipeline:
 
   test:
-    image: ethicaljobs/aphex:7.3.x
+    image: ethicaljobs/aphex
     pull: true
     commands: [ 'composer install --prefer-dist', './vendor/bin/phpunit' ]
 
