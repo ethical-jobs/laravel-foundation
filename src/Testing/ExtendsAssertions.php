@@ -9,19 +9,19 @@ use Illuminate\Support\Collection;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 trait ExtendsAssertions
 {
-     /**
-      * Determine if two associative arrays are similar
-      *
-      * Both arrays must have the same indexes with identical values
-      * without respect to key ordering
-      *
-      * @param iterable $expected
-      * @param iterable $actual
-      * @return bool
-      */
+    /**
+     * Determine if two associative arrays are similar
+     *
+     * Both arrays must have the same indexes with identical values
+     * without respect to key ordering
+     *
+     * @param iterable $expected
+     * @param iterable $actual
+     * @param null $message
+     * @return void
+     */
     function assertArrayEquals(iterable $expected, iterable $actual, $message = null)
     {
         if ($expected instanceof Collection) {
@@ -37,16 +37,17 @@ trait ExtendsAssertions
         $this->assertEquals($expected, $actual, $message);
     }
 
-     /**
-      * Determine if two associative arrays are similar
-      *
-      * Both arrays must have the same indexes with identical values
-      * without respect to key ordering
-      *
-      * @param Array|Collection $expected
-      * @param Array|Collection $actual
-      * @return bool
-      */
+    /**
+     * Determine if two associative arrays are similar
+     *
+     * Both arrays must have the same indexes with identical values
+     * without respect to key ordering
+     *
+     * @param array $expected
+     * @param array $actual
+     * @param null $message
+     * @return void
+     */
     function assertArrayNotEquals(Array $expected, Array $actual, $message = null)
     {
         if ($expected instanceof Collection) {
@@ -60,5 +61,5 @@ trait ExtendsAssertions
         ksort($actual);
 
         $this->assertNotEquals($expected, $actual, $message);
-    }    
+    }
 }

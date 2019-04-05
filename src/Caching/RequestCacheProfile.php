@@ -3,15 +3,13 @@
 namespace EthicalJobs\Foundation\Caching;
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Spatie\ResponseCache\CacheProfiles\CacheAllSuccessfulGetRequests;
 
 /**
  * Caches requests when there is no JWT token present
- * 
+ *
  * @author Andrew McLagan
  */
-
 class RequestCacheProfile extends CacheAllSuccessfulGetRequests
 {
     /**

@@ -2,6 +2,7 @@
 
 namespace EthicalJobs\Foundation\Laravel;
 
+use Illuminate\Support\ServiceProvider;
 use Rollbar\Laravel\RollbarServiceProvider;
 
 /**
@@ -9,15 +10,16 @@ use Rollbar\Laravel\RollbarServiceProvider;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
-class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
+class LoggingServiceProvider extends ServiceProvider
 {
     /**
      * Register any other events for your application.
      *
      * @return void
      */
-    public function boot() {}
+    public function boot()
+    {
+    }
 
     /**
      * Bind Repository interfaces to their appropriate implementations.
@@ -34,12 +36,12 @@ class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function registerRollbar() : void
+    public function registerRollbar()
     {
         $this->extendConfig();
 
         $this->app->register(RollbarServiceProvider::class);
-    }   
+    }
 
     /**
      * Override services config
@@ -47,9 +49,9 @@ class LoggingServiceProvider extends \Illuminate\Support\ServiceProvider
      * @return void
      */
     protected function extendConfig()
-    {    
-        $source = realpath(__DIR__.'/../../config/logging.php');
+    {
+        $source = realpath(__DIR__ . '/../../config/logging.php');
 
-        $this->mergeConfigFrom($source, 'logging');        
-    }       
+        $this->mergeConfigFrom($source, 'logging');
+    }
 }
