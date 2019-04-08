@@ -22,7 +22,7 @@ trait ExtendsAssertions
      * @param null $message
      * @return void
      */
-    function assertArrayEquals(iterable $expected, iterable $actual, $message = null)
+    function assertArrayEquals(iterable $expected, iterable $actual, $message = '')
     {
         if ($expected instanceof Collection) {
             $expected = $expected->toArray();
@@ -48,7 +48,7 @@ trait ExtendsAssertions
      * @param null $message
      * @return void
      */
-    function assertArrayNotEquals(Array $expected, Array $actual, $message = null)
+    function assertArrayNotEquals(Array $expected, Array $actual, $message = '')
     {
         if ($expected instanceof Collection) {
             $expected = $expected->toArray();

@@ -1,7 +1,8 @@
 # [staged]
 
-# v2.0.5
+# [v2.0.5 - v2.0.6]
 - Fix config bug
+- Fix test helper type error
 
 # v2.0.4
 - Code clean up
