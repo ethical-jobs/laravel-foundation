@@ -1,5 +1,9 @@
 # [staged]
 
+# [v1.5.3]
+
+- Fix test helper type error
+
 # v1.5.2
 
 - Fixes for pkg dependancies
